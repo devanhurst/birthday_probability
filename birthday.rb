@@ -11,11 +11,17 @@ def birthday_shit
 	end
 end
 
+puts "Input sample size."
+size = gets.chomp.to_i
+while !size.is_a?(Integer)
+	puts "Invalid sample size. Input an integer."
+	size = gets.chomp.to_i
+end
+
 average = 0
-(1..10000).each do |i|
+(0..size).each do |i|
 	result = birthday_shit
 	puts result
 	average += result
 end
-
-puts "AVERAGE ROOM SIZE = #{average/10000}"
+puts "AVERAGE ROOM SIZE = #{average/size}"
