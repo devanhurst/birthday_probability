@@ -18,10 +18,14 @@ while !size.is_a?(Integer)
 	size = gets.chomp.to_i
 end
 
+counts = Hash.new 0
 average = 0
 (0..size).each do |i|
 	result = birthday_shit
-	puts result
 	average += result
+	counts[result] += 1
 end
+
+counts = counts.sort_by {|size, number| size}
+counts.each do |key, value| puts "#{key}: #{value}" end
 puts "AVERAGE ROOM SIZE = #{average/size}"
